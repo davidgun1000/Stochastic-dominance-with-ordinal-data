@@ -1,8 +1,8 @@
 %ordinal dominance program
-load('param_2002.mat');
-load('param_2005.mat');
+load('param_2002.mat'); %load the parameter draws from the Dirichlet distribution.
+load('param_2005.mat'); %load the parameter draws from the Dirichlet distribution. 
 
-drawsx = prop_2002;
+drawsx = prop_2002; 
 drawsy = prop_2005;
 
 % prop1_x = drawsx(:,1);
@@ -17,16 +17,16 @@ drawsy = prop_2005;
 % prop4_y = drawsy(:,4);
 % prop5_y = drawsy(:,5);
 
-F_x_cum = cumsum(drawsx,2);
-F_y_cum = cumsum(drawsy,2);
+F_x_cum = cumsum(drawsx,2); %calculate the cdf
+F_y_cum = cumsum(drawsy,2); %calculate the cdf
 
 F_x_cum(:,5) = 1;
 F_y_cum(:,5) = 1;
 
-H_x_cum = cumsum(F_x_cum,2);
-H_y_cum = cumsum(F_y_cum,2);
+H_x_cum = cumsum(F_x_cum,2); %calculate the elements for second order dominance comparisons
+H_y_cum = cumsum(F_y_cum,2); %calculate the elements for second order dominance comparisons
 
-m = 10000;
+m = 10000; 
 
 
 for j = 1:1000
@@ -76,7 +76,7 @@ for j = 1:1000
     overall_xLDy(j,1) = mean(prod(xLDy,2));
     overall_yLDx(j,1) = mean(prod(yLDx,2));
 end
-
+%get the posterior probability estimates
 mean_prop_xFSDy = mean(prop_xFSDy);
 mean_prop_yFSDx = mean(prop_yFSDx);
 mean_overall_xFSDy = mean(overall_xFSDy)
