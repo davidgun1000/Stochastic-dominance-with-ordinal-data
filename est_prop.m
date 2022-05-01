@@ -5,7 +5,7 @@
 load('health_data_2002.mat');
 %load('health_data_2010.mat');
 
-x = jgh1_mod;
+x = health_data;
 
 id_1 = x == 1;
 n1 = sum(id_1);
