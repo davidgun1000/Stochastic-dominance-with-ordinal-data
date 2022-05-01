@@ -2,7 +2,8 @@
 
 %step1 estimating the proportion using dirichlet distribution
 
-load('health_data_used.mat');
+load('health_data_2001.mat');
+%load('health_data_2010.mat');
 
 x = jgh1_mod;
 
@@ -25,5 +26,5 @@ for i = 1:m
     prop_2010(i,:) = prop';
 end
 
-save('param_2010.mat','prop_2010');
+save('param_2001.mat','prop_2001');
 
